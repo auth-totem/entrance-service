@@ -1,0 +1,13 @@
+FROM node:14.16.1-alpine
+
+WORKDIR /usr/service/entrance
+
+COPY package*.json .
+
+RUN npm install
+
+COPY . .
+
+RUN npm run build
+
+CMD [ "npm", "run", "dev:watch" ]
