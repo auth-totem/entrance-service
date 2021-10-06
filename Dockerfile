@@ -5,10 +5,10 @@ WORKDIR /usr/local/user-ms
 COPY package.json .
 COPY package-lock.json .
 
-RUN npm install --silent --progress=false
+RUN npm install --silent --progress=false --production
 
 COPY . .
 
-EXPOSE 3000
+EXPOSE 3001
 
-ENTRYPOINT [ "npm", "run", "dev" ]
+ENTRYPOINT [ "npm", "start" ]
