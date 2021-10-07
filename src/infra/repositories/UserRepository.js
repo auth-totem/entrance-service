@@ -23,7 +23,6 @@ module.exports = class UserRepository {
   async getUsers(type) {
     const callName = `${fileName}.getUsers()`;
     this.logger.info(`${callName} trying to get user list as: ` + type);
-    const today = new Date();
 
     return await this.db
       .select('*')
@@ -34,12 +33,7 @@ module.exports = class UserRepository {
         'cadaster.idCadaster'
       )
       .leftJoin('event', 'event.idevent', 'cadaster_has_event.idEvent')
-      .where('event.idevent', type)
-      .andWhere(
-        'moment',
-        '>=',
-        `${today.getFullYear()}-${today.getUTCMonth() + 1}-${today.getDay()}`
-      );
+      .where('event.idevent', type);
   }
 
   async getUserByWallet(codeWallet) {

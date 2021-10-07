@@ -1,7 +1,7 @@
 module.exports = () => ({
   find: (type) => {
     switch (type) {
-      case 'colage':
+      case 'college':
         return 1;
       case 'class':
         return 2;

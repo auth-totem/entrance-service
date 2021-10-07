@@ -11,7 +11,7 @@ module.exports = ({ logger, userRepository, enterType }) => ({
     if (!user) return null;
     logger.info(`${callName} user picked\n` + JSON.stringify(user));
 
-    const newStatus = enterType.find(type || 'colage');
+    const newStatus = enterType.find(type || 'college');
     
     const userLastStatus = await userRepository.findLastStatus(
       user.idCadaster,
